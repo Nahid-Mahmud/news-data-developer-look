@@ -42,8 +42,60 @@ const getUniqueCategories = catchAsync(async (req: Request, res: Response, next:
   });
 });
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const getUniqueAuthors = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
+  const authors = await newsDataService.getUniqueAuthors();
+
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Unique authors retrieved successfully",
+    data: authors,
+  });
+});
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const getUniqueLanguages = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
+  const languages = await newsDataService.getUniqueLanguages();
+
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Unique languages retrieved successfully",
+    data: languages,
+  });
+});
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const getUniqueCountries = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
+  const countries = await newsDataService.getUniqueCountries();
+
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Unique countries retrieved successfully",
+    data: countries,
+  });
+});
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const getUniqueDatatypes = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
+  const datatypes = await newsDataService.getUniqueDatatypes();
+
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Unique datatypes retrieved successfully",
+    data: datatypes,
+  });
+});
+
 export const newsDataController = {
   getNewsData,
   fetchNews,
   getUniqueCategories,
+  getUniqueAuthors,
+  getUniqueLanguages,
+  getUniqueCountries,
+  getUniqueDatatypes,
 };
