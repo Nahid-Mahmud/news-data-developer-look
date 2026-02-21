@@ -48,6 +48,7 @@ interface EnvVariables {
     SSL_CANCEL_FRONTEND_URL: string;
     SSL_IPN_URL: string;
   };
+  NEWS_DATA_API_KEY: string;
 }
 
 const loadEnvVariable = (): EnvVariables => {
@@ -88,6 +89,7 @@ const loadEnvVariable = (): EnvVariables => {
     "SSL_SUCCESS_FRONTEND_URL",
     "SSL_FAIL_FRONTEND_URL",
     "SSL_CANCEL_FRONTEND_URL",
+    "NEWS_DATA_API_KEY",
   ];
 
   requiredEnvVariables.forEach((key) => {
@@ -142,6 +144,7 @@ const loadEnvVariable = (): EnvVariables => {
       SSL_CANCEL_FRONTEND_URL: process.env.SSL_CANCEL_FRONTEND_URL as string,
       SSL_IPN_URL: process.env.SSL_IPN_URL as string,
     },
+    NEWS_DATA_API_KEY: process.env.NEWS_DATA_API_KEY as string,
   };
 };
 

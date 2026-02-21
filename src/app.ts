@@ -11,6 +11,7 @@ import "./app/config/passport";
 import "./app/queues/jobProcessor";
 import envVariables from "./app/config/env";
 import { authLimiter } from "./app/middlewares/limiter";
+import initNewsJob from "./app/jobs/newsJob";
 
 export const app = express();
 app.use(
@@ -18,7 +19,7 @@ app.use(
     secret: envVariables.EXPRESS_SESSION_SECRET || "defaultSecret",
     resave: false,
     saveUninitialized: false,
-  })
+  }),
 );
 app.use(passport.initialize());
 app.use(passport.session());
@@ -34,11 +35,13 @@ app.use(
   cors({
     origin: [envVariables.FRONTEND_URL, "http://localhost:3000"],
     credentials: true, // Allow cookies to be sent with requests
-  })
+  }),
 );
 
 // trust proxy
 app.set("trust proxy", 1);
+
+initNewsJob();
 
 // cookie parser
 app.use(cookieParser());

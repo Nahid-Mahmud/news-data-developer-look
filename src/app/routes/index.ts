@@ -3,6 +3,7 @@ import { authRoutes } from "../modules/auth/auth.route";
 
 import { otpRoutes } from "../modules/otp/otp.routes";
 import { userRoutes } from "../modules/user/user.route";
+import { newsDataRoutes } from "../modules/newsData/newsData.route";
 
 export const router = Router();
 
@@ -23,6 +24,10 @@ const moduleRoutes: IModuleRoute[] = [
   {
     path: "/otp",
     route: otpRoutes,
+  },
+  {
+    path: "/news-data",
+    route: newsDataRoutes,
   },
 ];
 
